@@ -52,7 +52,6 @@ public class AuthRestAPIs {
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String jwt = jwtProvider.generateJwtToken(authentication);
-
         UserPrinciple userDetails = (UserPrinciple) authentication.getPrincipal();
         List<String> roles = userDetails.getAuthorities().stream()
                 .map(item -> item.getAuthority())
@@ -65,6 +64,7 @@ public class AuthRestAPIs {
                 userDetails.getEmail(),
                 roles));
     }
+
 
     @PostMapping("/signup")
     public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequest signUpRequest) {
@@ -81,9 +81,9 @@ public class AuthRestAPIs {
         }
 
         // Create new user's account
-        User user = new User(signUpRequest.getUsername(),signUpRequest.getName(),
+        User user = new User(signUpRequest.getUsername(), signUpRequest.getName(),
                 signUpRequest.getEmail(),
-                passwordEncoder.encode(signUpRequest.getPassword()));
+                passwordEncoder.encode(signUpRequest.getPassword()) );
 
         Set<String> strRoles = signUpRequest.getRole();
         Set<Role> roles = new HashSet<>();

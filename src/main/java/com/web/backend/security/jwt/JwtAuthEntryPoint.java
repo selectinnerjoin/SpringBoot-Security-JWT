@@ -13,7 +13,7 @@ import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.stereotype.Component;
 //use to throw un authorize msg if user credentialis not correct
 @Component
-@Slf4j
+
 public class JwtAuthEntryPoint implements AuthenticationEntryPoint {
 
     private static final Logger log = LoggerFactory.getLogger(JwtAuthEntryPoint.class);

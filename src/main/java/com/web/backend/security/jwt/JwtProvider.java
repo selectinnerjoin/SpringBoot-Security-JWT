@@ -16,7 +16,6 @@ import java.time.temporal.ChronoUnit;
 import java.util.Date;
 //class to generate jwt token:
 @Component
-@Slf4j
 public class JwtProvider {
     private static final Logger log = LoggerFactory.getLogger(JwtProvider.class);
     @Value("${jwt.secret}")
